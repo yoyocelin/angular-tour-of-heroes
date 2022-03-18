@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
   ],
   imports: [
     BrowserModule,
-    FormsModule,
+    FormsModule,//to use ngmodel into inputs tags
     AppRoutingModule
   ],
   providers: [],
