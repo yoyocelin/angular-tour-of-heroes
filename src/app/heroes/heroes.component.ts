@@ -33,4 +33,18 @@ export class HeroesComponent implements OnInit { //always export the component s
       .subscribe(heroes => this.heroes = heroes)
   }
 
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+
+    this.heroService.addHero({ name } as Hero)
+      .subscribe(hero => {
+        this.heroes.push(hero);
+      })
+  }
+
+  delete(hero: Hero): void {
+    this.heroes = this.heroes.filter(h => h !== hero);
+    this.heroService.deleteHero(hero.id).subscribe();//iven though there is nothing to subscrite on, it must do it
+  }
 }
